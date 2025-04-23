@@ -23,7 +23,7 @@ async function sendConfirmationEmail(email) {
       html:  `
       <div>
         <p>Bienvenido</p>
-        <p>Haz ingresado a ParkingLocation</p>
+        <p>Haz ingresado a CDA_SAMAN</p>
         <p>Gracias por ingresar :) </p>
       </div>
     `,
