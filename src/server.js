@@ -12,7 +12,7 @@ const authenticate = require('./auth/authenticate');
 
 class Server {
     constructor(port) {
-        this.port = port || 5000;
+        this.port = port || 3000;
         this.ACCESS_TOKEN_SECRET = this.generateTokenSecrets();
         this.REFRESH_TOKEN_SECRET = this.generateTokenSecrets();
 
@@ -50,7 +50,8 @@ class Server {
             home: '/',
             revision: "/api/revisiones",
             placas: "/api/placas",
-            sendEmail: "/api/send-email"
+            sendEmail: "/api/send-email",
+            pago:"/api/pago"
         };
 
         this.middlewares();
@@ -93,6 +94,7 @@ class Server {
         this.app.use(this.paths.revision, require('./routes/revision'));
         this.app.use(this.paths.placas, require('./routes/placas'));
         this.app.use(this.paths.sendEmail, require('./routes/sendEmail'));
+        this.app.use(this.paths.pago, require('./routes/PagoAnticipado') )
 
         this.app.get(this.paths.home, (req, res) => {
             res.json({ message: 'Server is in good state' });
